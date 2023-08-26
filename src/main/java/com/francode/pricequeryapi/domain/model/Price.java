@@ -15,7 +15,7 @@ public class Price {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private Product product;
-    private Long priority;
+    private int priority;
     private BigDecimal price;
     private String currency;
     private Brand brand;
