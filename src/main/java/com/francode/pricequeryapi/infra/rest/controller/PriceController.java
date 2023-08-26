@@ -22,8 +22,14 @@ public class PriceController {
 
     private final PriceService priceService;
 
-    public PriceController(PriceService priceService) {
+    private final ProductService productService;
+
+    private final BrandService brandService;
+
+    public PriceController(PriceService priceService, ProductService productService, BrandService brandService) {
         this.priceService = priceService;
+        this.productService = productService;
+        this.brandService = brandService;
     }
 
     @GetMapping()
@@ -31,6 +37,14 @@ public class PriceController {
             @RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date,
             @RequestParam("productId") Long productId,
             @RequestParam("brandId") Long brandId) {
+
+        if (!productService.isValidProduct(productId)) {
+            throw new RestRequestException(String.format("Invalid product ID: %s", productId), HttpStatus.BAD_REQUEST);
+        }
+
+        if (!brandService.isValidBrand(brandId)) {
+            throw new RestRequestException(String.format("Invalid brand ID: %s", brandId), HttpStatus.BAD_REQUEST);
+        }
 
         Optional<PriceResponse> price = priceService.getPrice(date,productId,brandId);
 
