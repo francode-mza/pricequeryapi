@@ -2,6 +2,7 @@ package com.francode.pricequeryapi.infra.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 @Table(name = "PRODUCTS")
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Builder
 public class ProductEntity {
     @Id

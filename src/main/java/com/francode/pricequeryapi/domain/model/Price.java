@@ -19,4 +19,12 @@ public class Price {
     private BigDecimal price;
     private String currency;
     private Brand brand;
+
+    public Long getProductId() {
+        return product != null ? product.getId() : null;
+    }
+
+    public Long getBrandId() {
+        return brand != null ? brand.getId() : null;
+    }
 }
