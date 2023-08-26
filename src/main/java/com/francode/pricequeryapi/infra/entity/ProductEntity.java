@@ -17,6 +17,6 @@ import javax.persistence.Table;
 public class ProductEntity {
     @Id
     private Long id;
-    @Column
+    @Column(name = "PRODUCT_NAME")
     private String name;
 }
