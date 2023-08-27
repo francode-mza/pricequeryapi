@@ -74,7 +74,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -134,8 +133,12 @@
                 </executions>
                 <configuration>
                     <excludes>
+                        <!-- Exclude plain and generated classes to focus on critic logic -->
+                        <exclude>com/francode/pricequeryapi/PricequeryapiApplication.class</exclude>
                         <exclude>com/francode/pricequeryapi/domain/model/**/*.class</exclude>
                         <exclude>com/francode/pricequeryapi/infra/entity/**/*.class</exclude>
+                        <exclude>com/francode/pricequeryapi/infra/config/**/*.class</exclude>
+                        <exclude>com/francode/pricequeryapi/infra/mapper/**/*MapperImpl.class</exclude>
                     </excludes>
                 </configuration>
             </plugin>
