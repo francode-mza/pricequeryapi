@@ -10,15 +10,14 @@ import java.util.Optional;
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
 
-    private ProductJpaRepository repository;
+    private final ProductJpaRepository repository;
 
-    private ProductMapper productMapper;
+    private final ProductMapper productMapper;
 
     public ProductRepositoryImpl(ProductJpaRepository repository, ProductMapper productMapper) {
         this.repository = repository;
         this.productMapper = productMapper;
     }
-
 
     @Override
     public Optional<Product> findById(Long productId) {

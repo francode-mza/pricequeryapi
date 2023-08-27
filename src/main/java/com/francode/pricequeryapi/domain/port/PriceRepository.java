@@ -6,6 +6,5 @@ import org.springframework.data.repository.query.Param;
 import java.time.LocalDateTime;
 
 public interface PriceRepository {
-
-    public Iterable<Price> findPricesByDateTimeAndProductIdAndBrandId(LocalDateTime dateTime, Long productId, Long brandId);
+    Iterable<Price> findPricesByDateTimeAndProductIdAndBrandId(LocalDateTime dateTime, Long productId, Long brandId);
 }

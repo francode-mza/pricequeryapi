@@ -1,4 +1,4 @@
-package com.francode.pricequeryapi.functional;
+package com.francode.pricequeryapi.integration;
 
 import com.francode.pricequeryapi.domain.dto.PriceResponse;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.math.BigDecimal;
@@ -27,6 +28,7 @@ public class GetPriceByCriteriaTest {
         ResponseEntity<PriceResponse> response = restTemplate.getForEntity(createUrl(testDate,testProductId,testBrandId), PriceResponse.class);
         BigDecimal actualPrice = response.getBody().getPrice();
 
+        assertEquals(HttpStatus.OK,response.getStatusCode());
         assertEquals(expectedPrice, actualPrice);
     }
 

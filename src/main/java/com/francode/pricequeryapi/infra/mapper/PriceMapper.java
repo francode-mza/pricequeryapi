@@ -6,7 +6,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface PriceMapper {
-
     Price toPrice(PriceEntity priceEntity);
     Iterable<Price> toPrices(Iterable<PriceEntity> priceEntities);
 }

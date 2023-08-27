@@ -17,7 +17,7 @@ public interface PriceJpaRepository extends JpaRepository<PriceEntity, Long> {
             "AND p.product.id = :productId " +
             "AND p.brand.id = :brandId " +
             "ORDER BY p.priority DESC")
-    public List<PriceEntity> findPricesByDateTimeAndProductIdAndBrandId(
+    List<PriceEntity> findPricesByDateTimeAndProductIdAndBrandId(
             @Param("dateTime") LocalDateTime dateTime,
             @Param("productId") Long productId,
             @Param("brandId") Long brandId

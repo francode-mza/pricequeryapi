@@ -16,8 +16,8 @@ public class BeanConfiguration {
     }
 
     @Bean
-    ProductService productBeanService(final ProductRepository productRepository, final ProductMapper productMapper){
-        return new ProductServiceImpl(productRepository, productMapper);
+    ProductService productBeanService(final ProductRepository productRepository){
+        return new ProductServiceImpl(productRepository);
     }
 
     @Bean

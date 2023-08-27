@@ -10,9 +10,10 @@ import java.util.Optional;
 @Repository
 public class BrandRepositoryImpl implements BrandRepository {
 
-    private BrandJpaRepository repository;
+    private final BrandJpaRepository repository;
 
-    private BrandMapper brandMapper;
+    private final BrandMapper brandMapper;
+
     public BrandRepositoryImpl(BrandJpaRepository repository, BrandMapper brandMapper) {
         this.repository = repository;
         this.brandMapper = brandMapper;
