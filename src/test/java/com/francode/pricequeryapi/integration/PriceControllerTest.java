@@ -17,10 +17,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PriceControllerTest {
-
     @LocalServerPort
     private int port;
-
     @ParameterizedTest
     @MethodSource("testData")
     public void testPrices(String testDate, long testProductId, long testBrandId, String expectedMessage, HttpStatus expectedHttpStatus) {
@@ -45,7 +43,7 @@ public class PriceControllerTest {
             JsonNode jsonNode = objectMapper.readTree(responseBody);
             return jsonNode.get("message").textValue();
         } catch (Exception e) {
-            return "";
+            throw new AssertionError("Failed to extract message from response.");
         }
     }
 
@@ -55,7 +53,7 @@ public class PriceControllerTest {
             JsonNode jsonNode = objectMapper.readTree(responseBody);
             return HttpStatus.valueOf(jsonNode.get("httpStatus").textValue());
         } catch (Exception e) {
-            return null;
+            throw new AssertionError("Failed to extract HttpStatus from response.");
         }
     }
 

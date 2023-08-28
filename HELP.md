@@ -28,7 +28,7 @@ With Maven Wrapper: **./mvnw spring-boot:run**
 
 Once the project is running, an endpoint will be available on: **localhost:8080/prices**
 
-This GET endpoint require three parameters: date, productId and brandId
+This GET endpoint require three parameters: date (in LocalDateTime format), productId (Long) and brandId (Long)
 
 For example: **http://localhost:8080/prices?date=2020-06-14T16:00:00&productId=35455&brandId=1**
 

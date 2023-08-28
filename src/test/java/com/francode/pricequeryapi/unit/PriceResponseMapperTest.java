@@ -18,20 +18,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 public class PriceResponseMapperTest {
-
     private final PriceResponseMapper priceResponseMapper = Mappers.getMapper(PriceResponseMapper.class);
-
     @Mock
     private Product mockProduct;
-
     @Mock
     private Brand mockBrand;
-
     @BeforeEach
     void setup() {
         MockitoAnnotations.initMocks(this);
     }
-
     @Test
     public void testToPriceResponse() {
         Long productId = 35455L;
@@ -55,7 +50,7 @@ public class PriceResponseMapperTest {
         assertEquals(price.getStartDate(), priceResponse.getStartDate());
         assertEquals(price.getEndDate(), priceResponse.getEndDate());
         assertEquals(price.getPrice(), priceResponse.getPrice());
-    //    assertEquals(price.getCurrency(), priceResponse.getCurrency());
+        assertEquals(price.getCurrency(), priceResponse.getCurrency());
         assertEquals(productId, priceResponse.getProductId());
         assertEquals(brandId, priceResponse.getBrandId());
     }

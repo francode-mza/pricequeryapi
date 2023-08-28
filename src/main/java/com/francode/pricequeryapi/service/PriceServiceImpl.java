@@ -15,7 +15,6 @@ import java.util.Optional;
 public class PriceServiceImpl implements PriceService{
     private static final Logger logger = LoggerFactory.getLogger(PriceServiceImpl.class);
     private PriceRepository repository;
-
     private PriceResponseMapper priceResponseMapper;
 
     public PriceServiceImpl(PriceRepository repository, PriceResponseMapper priceResponseMapper) {

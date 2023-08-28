@@ -19,21 +19,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 public class PriceMapperTest {
-
     @Mock
     private ProductEntity mockProductEntity;
-
     @Mock
     private BrandEntity mockBrandEntity;
-
     @InjectMocks
     private PriceMapper priceMapper = Mappers.getMapper(PriceMapper.class);
-
     @BeforeEach
     void setup() {
         MockitoAnnotations.initMocks(this);
     }
-
 
     @Test
     public void testToPrice() {
